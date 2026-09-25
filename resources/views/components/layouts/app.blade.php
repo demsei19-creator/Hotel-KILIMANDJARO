@@ -24,13 +24,14 @@
             <nav class="nav-links">
                 <a href="{{ url('/') }}">Accueil</a>
                 <a href="{{ url('/chambres') }}">Chambres</a>
+                <a href="{{ url('/restaurant') }}">Restaurant</a>
             </nav>
             <a href="{{ url('/chambres') }}" class="btn-primary">Réserver</a>
         </div>
     </header>
 
     <main class="main-content">
-        @yield('content')
+        {{ $slot }}
     </main>
 
     <footer class="footer">
