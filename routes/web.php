@@ -12,3 +12,7 @@ Route::get('/chambres', [RoomCatalogController::class, 'index'])->name('rooms.in
 Route::get('/chambres/{roomType}', [BookingController::class, 'show'])->name('rooms.show');
 Route::post('/chambres/{roomType}/book', [BookingController::class, 'book'])->name('rooms.book');
 Route::get('/reservation/{id}/success', [BookingController::class, 'success'])->name('rooms.success');
+
+Route::post('/webhook/cinetpay', [\App\Http\Controllers\CinetPayWebhookController::class, 'handle'])
+    ->name('webhook.cinetpay')
+    ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);

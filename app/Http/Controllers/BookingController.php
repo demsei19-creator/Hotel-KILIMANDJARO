@@ -14,7 +14,7 @@ class BookingController extends Controller
         return view('rooms.show', compact('roomType'));
     }
 
-    public function book(Request $request, RoomType $roomType, BookingService $bookingService)
+    public function book(Request $request, RoomType $roomType, BookingService $bookingService, \App\Services\CinetPayService $cinetPayService)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -32,15 +32,29 @@ class BookingController extends Controller
                 $request->check_out
             );
 
-            return redirect()->route('rooms.success', $reservation->id);
+            $paymentUrl = $cinetPayService->generatePaymentLink(
+                $reservation->id,
+                $reservation->total_amount,
+                'XOF', // or EUR, using XOF for CinetPay default example
+                'Réservation: ' . $roomType->name,
+                $request->name,
+                $request->email
+            );
+
+            return redirect()->away($paymentUrl);
         } catch (\Exception $e) {
             return back()->withInput()->with('error', $e->getMessage());
         }
     }
 
-    public function success($id)
+    public function success(Request $request, $id)
     {
         $reservation = Reservation::with('room.roomType')->findOrFail($id);
+
+        if ($request->has('mock_payment')) {
+            $reservation->update(['status' => 'confirmed']);
+        }
+
         return view('rooms.success', compact('reservation'));
     }
 }
