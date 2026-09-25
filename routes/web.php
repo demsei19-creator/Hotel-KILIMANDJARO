@@ -10,10 +10,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/chambres', [RoomCatalogController::class, 'index'])->name('rooms.index');
 
 Route::get('/chambres/{roomType}', [BookingController::class, 'show'])->name('rooms.show');
+Route::get('/chambres/{roomType}/reservation', [BookingController::class, 'reservation'])->name('rooms.reservation');
 Route::post('/chambres/{roomType}/book', [BookingController::class, 'book'])->name('rooms.book');
 Route::get('/reservation/{id}/success', [BookingController::class, 'success'])->name('rooms.success');
 
 Route::get('/restaurant', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
+Route::get('/restaurant/reservation', [\App\Http\Controllers\RestaurantController::class, 'reservation'])->name('restaurant.reservation');
 Route::post('/restaurant/book', [\App\Http\Controllers\RestaurantController::class, 'book'])->name('restaurant.book');
 
 Route::post('/webhook/cinetpay', [\App\Http\Controllers\CinetPayWebhookController::class, 'handle'])

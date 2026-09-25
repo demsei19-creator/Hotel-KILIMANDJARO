@@ -14,6 +14,11 @@ class BookingController extends Controller
         return view('rooms.show', compact('roomType'));
     }
 
+    public function reservation(RoomType $roomType)
+    {
+        return view('rooms.reservation', compact('roomType'));
+    }
+
     public function book(Request $request, RoomType $roomType, BookingService $bookingService, \App\Services\CinetPayService $cinetPayService)
     {
         $request->validate([
@@ -31,6 +36,14 @@ class BookingController extends Controller
                 $request->check_in,
                 $request->check_out
             );
+
+            // Send Email confirmation
+            try {
+                \Illuminate\Support\Facades\Mail::to($reservation->customer_email)->send(new \App\Mail\RoomReservationMail($reservation));
+            } catch (\Exception $e) {
+                // Log error or ignore if SMTP not configured
+                \Illuminate\Support\Facades\Log::error('Erreur envoi email chambre: ' . $e->getMessage());
+            }
 
             $paymentUrl = $cinetPayService->generatePaymentLink(
                 $reservation->id,

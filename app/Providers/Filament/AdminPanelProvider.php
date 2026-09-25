@@ -28,8 +28,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Hôtel KILIMANDJARO')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => \Filament\Support\Colors\Color::hex('#C5A059'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
@@ -41,6 +42,8 @@ class AdminPanelProvider extends PanelProvider
                 AccountWidget::class,
                 FilamentInfoWidget::class,
             ])
+            ->databaseNotifications()
+            ->databaseNotificationsPolling('3s')
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

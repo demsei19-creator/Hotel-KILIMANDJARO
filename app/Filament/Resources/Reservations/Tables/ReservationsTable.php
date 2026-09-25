@@ -33,7 +33,7 @@ class ReservationsTable
                     ->sortable(),
                 TextColumn::make('total_amount')
                     ->label('Total')
-                    ->money('EUR')
+                    ->money('XOF')
                     ->sortable(),
                 TextColumn::make('status')
                     ->label('Statut')

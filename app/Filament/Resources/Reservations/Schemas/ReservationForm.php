@@ -31,7 +31,7 @@ class ReservationForm
                     ->required(),
                 TextInput::make('total_amount')
                     ->label('Montant total')
-                    ->prefix('€')
+                    ->suffix('FCFA')
                     ->required()
                     ->numeric(),
                 \Filament\Forms\Components\Select::make('status')

@@ -1,107 +1,117 @@
 <x-layouts.app>
-    <section class="hero-section" style="min-height: 40vh; display:flex; align-items:center; justify-content:center; text-align:center;">
-        <div class="hero-content">
-            <span class="badge">Notre Table</span>
-            <h1 class="hero-title">Le Restaurant</h1>
-            <p class="hero-subtitle">Découvrez une expérience culinaire unique, mêlant saveurs locales et gastronomie internationale.</p>
+    <!-- Hero Section -->
+    <section class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="Le Restaurant Kilimandjaro" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-luxury-black/90 via-luxury-black/40 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 pt-20" x-data="{ shown: false }" x-intersect.once="shown = true">
+            <span class="font-sans text-luxury-gold tracking-[0.3em] uppercase text-sm mb-6 block transition-all duration-1000 ease-out"
+                  :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">Le Maquis de Luxe</span>
+            <h1 class="font-serif text-5xl md:text-7xl mb-6 transition-all duration-1000 delay-300 ease-out"
+                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">L'Éveil des Sens</h1>
+            <p class="font-sans text-lg md:text-xl text-luxury-gray-light max-w-2xl mx-auto transition-all duration-1000 delay-500 ease-out"
+               :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
+                Une expérience gastronomique où le doux enjaillement ivoirien rencontre l'excellence internationale.
+            </p>
         </div>
     </section>
 
-    <section class="rooms-section">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr; gap: 4rem;">
-                
-                @media (min-width: 768px) {
-                    <style>
-                        .resto-grid {
-                            display: grid;
-                            grid-template-columns: 2fr 1fr;
-                            gap: 4rem;
-                        }
-                    </style>
-                }
-                
-                <div class="resto-grid" style="display: grid; gap: 4rem; @media (min-width: 768px) { grid-template-columns: 2fr 1fr; }">
-                    
-                    <!-- Menu -->
-                    <div class="menu-list">
-                        <h2 class="section-title">La Carte</h2>
-                        
-                        @forelse($categories as $category)
-                            <div class="menu-category" style="margin-bottom: 3rem;">
-                                <h3 style="font-size: 1.5rem; color: var(--primary); border-bottom: 2px solid var(--primary-light); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">{{ $category->name }}</h3>
-                                <div style="display: grid; gap: 1.5rem;">
-                                    @forelse($category->items as $item)
-                                        <div class="menu-item" style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
-                                            <div>
-                                                <h4 style="font-weight: 600; margin: 0; font-size: 1.1rem;">{{ $item->name }}</h4>
-                                                @if($item->description)
-                                                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0.4rem 0 0 0;">{{ $item->description }}</p>
-                                                @endif
-                                            </div>
-                                            <div style="font-weight: 700; color: var(--accent); white-space: nowrap; margin-left: 1rem;">
-                                                {{ number_format($item->price, 0, ',', ' ') }} FCFA
-                                            </div>
-                                        </div>
-                                    @empty
-                                        <p style="color: var(--text-muted);">Bientôt disponible.</p>
-                                    @endforelse
-                                </div>
-                            </div>
-                        @empty
-                            <p style="color: var(--text-muted);">La carte est en cours d'élaboration.</p>
-                        @endforelse
-                    </div>
+    <!-- Menu Showcase Section -->
+    <section class="py-32 bg-luxury-white">
+        <div class="container mx-auto px-6 md:px-12 max-w-6xl">
+            <div class="text-center mb-20" x-data="{ shown: false }" x-intersect.once="shown = true">
+                <span class="font-sans text-luxury-gold tracking-[0.3em] uppercase text-xs mb-4 block transition-all duration-1000 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">Notre Carte</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-luxury-black transition-all duration-1000 delay-300 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">L'Essence des Saveurs</h2>
+                <div class="w-16 h-[1px] bg-luxury-gold mx-auto mt-8 transition-all duration-1000 delay-500 ease-out" :class="shown ? 'w-16' : 'w-0'"></div>
+            </div>
 
-                    <!-- Booking Form -->
-                    <div class="booking-sidebar">
-                        <div class="booking-card glass-panel" style="position: sticky; top: 2rem;">
-                            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Réserver une table</h3>
-                            
-                            @if(session('success'))
-                                <div style="background: rgba(46, 213, 115, 0.1); color: #2ed573; border: 1px solid rgba(46, 213, 115, 0.3); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-
-                            <form action="{{ route('restaurant.book') }}" method="POST" class="booking-form">
-                                @csrf
-                                <div class="form-group">
-                                    <label class="form-label">Nom complet</label>
-                                    <input type="text" name="customer_name" class="form-input" required value="{{ old('customer_name') }}" placeholder="Jean Dupont">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" name="customer_email" class="form-input" required value="{{ old('customer_email') }}" placeholder="jean@example.com">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Téléphone</label>
-                                    <input type="text" name="customer_phone" class="form-input" value="{{ old('customer_phone') }}" placeholder="+225 0102030405">
-                                </div>
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                                    <div class="form-group">
-                                        <label class="form-label">Date</label>
-                                        <input type="date" name="reservation_date" class="form-input" required value="{{ old('reservation_date') }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Heure</label>
-                                        <input type="time" name="reservation_time" class="form-input" required value="{{ old('reservation_time') }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Nombre de couverts</label>
-                                    <input type="number" name="guests" class="form-input" min="1" max="20" required value="{{ old('guests', 2) }}">
-                                </div>
-                                
-                                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
-                                    Demander une table
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
+                <!-- Entrées -->
+                <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-all duration-1000 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
+                    <h3 class="font-serif text-3xl text-luxury-black border-b border-gray-200 pb-4 mb-8">Entrées</h3>
+                    <ul class="space-y-6 font-sans text-sm text-luxury-gray">
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Salades composées (avocat-crevettes, César)</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Alloco en accompagnement ou entrée</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Soupe & velouté du chef</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Attiéké aux poissons fumés ou grillés</span></li>
+                    </ul>
                 </div>
+
+                <!-- Plats Ivoiriens -->
+                <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-all duration-1000 delay-200 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
+                    <h3 class="font-serif text-3xl text-luxury-black border-b border-gray-200 pb-4 mb-8">Plats Principaux Ivoiriens</h3>
+                    <ul class="space-y-6 font-sans text-sm text-luxury-gray">
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Attiéké (poisson, poulet, viande grillée)</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Kedjenou (poulet ou pintade mijoté)</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">L'Authentique Garba</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Sauce graine, gombo, ou feuilles de manioc</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Braisés (Poulet, Bar, Capitaine, Thiof)</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Foutou banane/igname sauce claire</span></li>
+                    </ul>
+                </div>
+
+                <!-- Plats Internationaux -->
+                <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-all duration-1000 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
+                    <h3 class="font-serif text-3xl text-luxury-black border-b border-gray-200 pb-4 mb-8">Classiques Internationaux</h3>
+                    <ul class="space-y-6 font-sans text-sm text-luxury-gray">
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Grillades façon brasserie (bœuf, agneau)</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Pâtes artisanales & Pizzas au feu de bois</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Poissons nobles à l'occidentale</span></li>
+                        <li class="flex justify-between items-baseline"><span class="tracking-wide">Créations végétariennes de saison</span></li>
+                    </ul>
+                </div>
+
+                <!-- Desserts & Boissons -->
+                <div class="space-y-16">
+                    <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-all duration-1000 delay-200 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
+                        <h3 class="font-serif text-3xl text-luxury-black border-b border-gray-200 pb-4 mb-8">Desserts</h3>
+                        <ul class="space-y-6 font-sans text-sm text-luxury-gray">
+                            <li class="flex justify-between items-baseline"><span class="tracking-wide">Salade de fruits tropicaux (mangue, ananas...)</span></li>
+                            <li class="flex justify-between items-baseline"><span class="tracking-wide">Pâtisseries classiques (tarte, fondant)</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-all duration-1000 delay-200 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
+                        <h3 class="font-serif text-3xl text-luxury-black border-b border-gray-200 pb-4 mb-8">Rafraîchissements</h3>
+                        <ul class="space-y-6 font-sans text-sm text-luxury-gray">
+                            <li class="flex justify-between items-baseline"><span class="tracking-wide">Jus locaux (bissap, gnamankoudji, djin-djin, fruits frais)</span></li>
+                            <li class="flex justify-between items-baseline"><span class="tracking-wide">Bières locales (Ivoire, Bock "Drogba"), Vins & Cocktails</span></li>
+                            <li class="flex justify-between items-baseline"><span class="tracking-wide">Eaux minérales, sodas, cafés & thés</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Petit-déjeuner Highlight -->
+            <div class="mt-20 p-12 bg-white border border-gray-100 shadow-xl text-center" x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-all duration-1000 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
+                <h3 class="font-serif text-3xl text-luxury-black mb-6">Le Petit-Déjeuner</h3>
+                <p class="font-sans text-luxury-gray max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Commencez votre journée en douceur avec notre sélection matinale variée, servie dans un cadre baigné de lumière.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto">
+                    <div>
+                        <h4 class="font-sans text-luxury-black tracking-widest uppercase text-xs mb-4">Le Continental</h4>
+                        <p class="font-sans text-sm text-luxury-gray">Assortiment de viennoiseries fraîches, œufs préparés à votre convenance, fruits de saison, café de spécialité et thés raffinés.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-sans text-luxury-black tracking-widest uppercase text-xs mb-4">Les Saveurs Locales</h4>
+                        <p class="font-sans text-sm text-luxury-gray">Découvrez nos spécialités matinales : bouillie de mil onctueuse, beignets chauds et thé revigorant au gingembre.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Reservation Jump button -->
+            <div class="text-center mt-20" x-data="{ shown: false }" x-intersect.once="shown = true" :class="shown ? 'opacity-100' : 'opacity-0'" class="transition-opacity duration-1000 delay-500">
+                <a href="{{ route('restaurant.reservation') }}" class="inline-block border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-white px-10 py-4 font-sans tracking-[0.2em] uppercase text-xs transition-colors duration-500">
+                    Réserver votre table
+                </a>
             </div>
         </div>
     </section>
 </x-layouts.app>
+
+

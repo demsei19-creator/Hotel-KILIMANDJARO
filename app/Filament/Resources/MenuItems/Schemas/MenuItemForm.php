@@ -22,7 +22,7 @@ class MenuItemForm
                 TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->suffix('FCFA'),
             ]);
     }
 }

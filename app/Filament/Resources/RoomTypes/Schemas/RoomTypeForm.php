@@ -22,7 +22,7 @@ class RoomTypeForm
                     ->label('Prix de base')
                     ->required()
                     ->numeric()
-                    ->prefix('€'),
+                    ->suffix('FCFA'),
             ]);
     }
 }

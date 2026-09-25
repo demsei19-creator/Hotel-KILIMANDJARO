@@ -23,7 +23,7 @@ class RoomTypesTable
                     ->sortable(),
                 TextColumn::make('base_price')
                     ->label('Prix de base')
-                    ->money('EUR')
+                    ->money('XOF')
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

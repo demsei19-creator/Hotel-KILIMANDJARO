@@ -1,52 +1,139 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Hôtel Kilimandjaro | Évasion & Luxe')</title>
-    <meta name="description" content="@yield('meta_description', 'Découvrez l\'Hôtel Kilimandjaro, votre prochaine destination de rêve alliant confort, luxe et nature.')">
+    <title>{{ $title ?? 'Hôtel Kilimandjaro | Abidjan' }}</title>
     
-    <!-- Google Fonts: Outfit & Playfair Display -->
+    <!-- Google Fonts: Outfit (Sans) & Cormorant Garamond (Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- Tailwind CSS / Vite -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    <header class="navbar">
-        <div class="navbar-container">
-            <a href="{{ url('/') }}" class="logo">
-                <span class="logo-icon">🏔️</span>
+<body class="bg-luxury-white text-luxury-black antialiased selection:bg-luxury-gold selection:text-white flex flex-col min-h-screen">
+    
+    <!-- Navigation (Solid Luxury Header) -->
+    <header x-data="{ mobileMenuOpen: false }" 
+            class="fixed top-0 w-full z-50 bg-[#F9F9FA] border-b border-gray-200 py-5 text-luxury-black">
+        
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="{{ url('/') }}" class="font-serif text-2xl md:text-[28px] tracking-[0.35em] uppercase text-luxury-black">
                 Kilimandjaro
             </a>
-            <nav class="nav-links">
-                <a href="{{ url('/') }}">Accueil</a>
-                <a href="{{ url('/chambres') }}">Chambres</a>
-                <a href="{{ url('/restaurant') }}">Restaurant</a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-10 font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-luxury-black">
+                <a href="{{ url('/') }}" class="hover:text-luxury-gray transition-colors duration-300">Accueil</a>
+                <a href="{{ url('/chambres') }}" class="hover:text-luxury-gray transition-colors duration-300">Chambres</a>
+                <a href="{{ url('/restaurant') }}" class="hover:text-luxury-gray transition-colors duration-300">Restaurant</a>
+                <a href="#contact" class="hover:text-luxury-gray transition-colors duration-300">Contact</a>
+                
+                <a href="{{ url('/chambres') }}" 
+                   class="ml-4 border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-white px-8 py-3.5 transition-colors duration-300">
+                    Réserver
+                </a>
             </nav>
-            <a href="{{ url('/chambres') }}" class="btn-primary">Réserver</a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-luxury-black transition-colors duration-300">
+                <svg x-show="!mobileMenuOpen" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg x-show="mobileMenuOpen" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none;"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Nav -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-500"
+             x-transition:enter-start="opacity-0 -translate-y-full"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-full"
+             class="absolute top-0 left-0 w-full h-screen bg-luxury-black text-white flex flex-col justify-center items-center md:hidden z-40" style="display:none;">
+            
+            <button @click="mobileMenuOpen = false" class="absolute top-10 right-8 text-white focus:outline-none">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="flex flex-col items-center gap-10 font-serif text-4xl">
+                <a href="{{ url('/') }}" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Accueil</a>
+                <a href="{{ url('/chambres') }}" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Chambres</a>
+                <a href="{{ url('/restaurant') }}" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Restaurant</a>
+                <a href="#contact" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Contact</a>
+                <div class="pt-10 mt-6 border-t border-white/20 w-32 text-center">
+                    <a href="{{ url('/chambres') }}" class="inline-block border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white px-10 py-4 text-sm font-sans tracking-[0.3em] uppercase transition-all duration-500">
+                        Réserver
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="main-content">
+    <!-- Main Content -->
+    <main class="flex-grow">
         {{ $slot }}
     </main>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>Hôtel Kilimandjaro</h3>
-                <p>Votre oasis de tranquillité et de luxe en pleine nature.</p>
+    <!-- Majestic Footer -->
+    <footer id="contact" class="bg-luxury-black text-luxury-white pt-32 pb-12 mt-auto border-t border-white/10 relative overflow-hidden">
+        <!-- Subtle background logo watermark -->
+        <div class="absolute -bottom-20 -right-20 text-[20rem] font-serif text-white opacity-[0.02] pointer-events-none select-none">K</div>
+        
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
+                
+                <!-- Brand & Newsletter -->
+                <div class="md:col-span-5">
+                    <h2 class="font-serif text-4xl uppercase tracking-[0.2em] text-white mb-8">Kilimandjaro</h2>
+                    <p class="font-sans text-sm leading-relaxed text-luxury-gray max-w-sm mb-12">
+                        Une retraite urbaine d'exception au cœur de Babi. L'art de vivre réinventé à travers un minimalisme raffiné et un service sans compromis.
+                    </p>
+                    
+                    <form class="flex border-b border-luxury-gray/50 pb-2 max-w-sm group">
+                        <input type="email" placeholder="Votre email pour nos exclusivités" class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-luxury-gray/50 font-sans tracking-wide">
+                        <button type="submit" class="text-luxury-gold text-xs uppercase tracking-widest group-hover:text-white transition-colors duration-300">S'inscrire</button>
+                    </form>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="md:col-span-3 md:col-start-7 flex flex-col gap-6 font-sans text-xs tracking-widest uppercase text-luxury-gray">
+                    <h3 class="font-serif text-luxury-gold mb-2 normal-case text-xl tracking-normal">Découvrir</h3>
+                    <a href="{{ url('/chambres') }}" class="hover:text-white transition-colors duration-300 flex items-center gap-4 group">
+                        <div class="w-0 h-[1px] bg-luxury-gold transition-all duration-300 group-hover:w-4"></div>
+                        Nos Suites
+                    </a>
+                    <a href="{{ url('/restaurant') }}" class="hover:text-white transition-colors duration-300 flex items-center gap-4 group">
+                        <div class="w-0 h-[1px] bg-luxury-gold transition-all duration-300 group-hover:w-4"></div>
+                        Le Maquis de Luxe
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors duration-300 flex items-center gap-4 group">
+                        <div class="w-0 h-[1px] bg-luxury-gold transition-all duration-300 group-hover:w-4"></div>
+                        Le Spa & Bien-être
+                    </a>
+                </div>
+                
+                <!-- Contact & Legal -->
+                <div class="md:col-span-3 flex flex-col gap-6 font-sans text-xs tracking-widest uppercase text-luxury-gray">
+                    <h3 class="font-serif text-luxury-gold mb-2 normal-case text-xl tracking-normal">Contact</h3>
+                    <p class="hover:text-white transition-colors duration-300 cursor-pointer">Boulevard de France, Cocody<br>Abidjan, Côte d'Ivoire</p>
+                    <p class="hover:text-white transition-colors duration-300 cursor-pointer">+225 00 00 00 00 00</p>
+                    <p class="hover:text-white transition-colors duration-300 cursor-pointer">concierge@kilimandjaro.ci</p>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="#">Conditions générales</a>
-                <a href="#">Politique de confidentialité</a>
+            
+            <!-- Bottom Footer -->
+            <div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-gray">
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Mentions légales</a>
+                    <a href="#" class="hover:text-white transition-colors">Confidentialité</a>
+                </div>
+                <p>&copy; {{ date('Y') }} Kilimandjaro. Design par <span class="text-luxury-gold">Antigravity</span></p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; {{ date('Y') }} Hôtel Kilimandjaro. Tous droits réservés.
         </div>
     </footer>
 </body>

@@ -11,7 +11,7 @@
                 <p><strong>Chambre :</strong> {{ $reservation->room->roomType->name }} (N° {{ $reservation->room->number }})</p>
                 <p><strong>Arrivée :</strong> {{ \Carbon\Carbon::parse($reservation->check_in)->format('d/m/Y') }}</p>
                 <p><strong>Départ :</strong> {{ \Carbon\Carbon::parse($reservation->check_out)->format('d/m/Y') }}</p>
-                <p><strong>Montant total :</strong> {{ number_format($reservation->total_amount, 0, ',', ' ') }} €</p>
+                <p><strong>Montant total :</strong> {{ number_format($reservation->total_amount, 0, ',', ' ') }} FCFA</p>
             </div>
             
             <p style="color: var(--color-text-muted);">Votre réservation est actuellement <strong>En attente</strong>. Un email de confirmation vous sera envoyé prochainement sur {{ $reservation->customer_email }}.</p>

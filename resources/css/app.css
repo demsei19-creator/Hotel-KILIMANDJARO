@@ -4,6 +4,59 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Luxury Minimalism Design System */
+    
+    /* Typography */
+    --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Cormorant Garamond', ui-serif, Georgia, serif;
+    
+    /* Colors */
+    --color-luxury-black: #0A0A0A;
+    --color-luxury-white: #FAFAFA;
+    --color-luxury-gold: #C5A880;
+    --color-luxury-gold-dark: #A98C64;
+    --color-luxury-gray-light: #E5E5E5;
+    --color-luxury-gray: #737373;
+
+    /* Base text colors */
+    --color-text-primary: var(--color-luxury-black);
+    --color-text-secondary: var(--color-luxury-gray);
+    --color-text-inverse: var(--color-luxury-white);
+    
+    /* Base background colors */
+    --color-bg-primary: var(--color-luxury-white);
+    --color-bg-inverse: var(--color-luxury-black);
+    
+    /* Subtle animations */
+    --animate-fade-in-up: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    --animate-slow-zoom: slow-zoom 10s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slow-zoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+@layer base {
+    body {
+        @apply font-sans bg-[var(--color-luxury-white)] text-[var(--color-luxury-black)] antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-serif font-light tracking-tight;
+    }
 }

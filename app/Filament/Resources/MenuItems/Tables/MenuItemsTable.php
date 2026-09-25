@@ -20,7 +20,7 @@ class MenuItemsTable
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('price')
-                    ->money()
+                    ->money('XOF')
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

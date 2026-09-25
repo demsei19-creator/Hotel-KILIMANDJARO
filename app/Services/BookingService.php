@@ -22,6 +22,7 @@ class BookingService
                           ->whereIn('status', ['pending', 'confirmed']);
                     });
                 })
+                ->lockForUpdate()
                 ->first();
 
             if (!$availableRoom) {

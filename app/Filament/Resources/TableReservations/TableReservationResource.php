@@ -18,9 +18,27 @@ class TableReservationResource extends Resource
 {
     protected static ?string $model = TableReservation::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
 
-    protected static ?string $recordTitleAttribute = 'customer_name';
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Restaurant';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Réservations de Table';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Réservation';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Réservations';
+    }
 
     public static function form(Schema $schema): Schema
     {
