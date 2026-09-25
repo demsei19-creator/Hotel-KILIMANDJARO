@@ -65,7 +65,7 @@
                     <div class="aspect-[3/4] overflow-hidden transition-all duration-1000 delay-200 ease-out"
                          :class="shown ? 'opacity-100 scale-100' : 'opacity-0 scale-95'">
                         <img src="{{ asset('images/philosophy.jpg') }}" 
-                             alt="Détail architectural" 
+                             alt="Détail architectural" loading="lazy"
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]">
                     </div>
                     <!-- Overlapping element for depth -->
@@ -103,7 +103,7 @@
                     <div class="aspect-[4/3] overflow-hidden mb-6 transition-all duration-1000 ease-out"
                          :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
                         <img src="{{ asset('images/room1.jpg') }}" 
-                             alt="Suite Signature" 
+                             alt="Suite Signature" loading="lazy"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]">
                     </div>
                     <div class="flex justify-between items-baseline transition-all duration-1000 delay-200 ease-out"
@@ -121,7 +121,7 @@
                     <div class="aspect-[4/3] overflow-hidden mb-6 transition-all duration-1000 delay-300 ease-out"
                          :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
                         <img src="{{ asset('images/room2.jpg') }}" 
-                             alt="Chambre Supérieure" 
+                             alt="Chambre Supérieure" loading="lazy"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]">
                     </div>
                     <div class="flex justify-between items-baseline transition-all duration-1000 delay-500 ease-out"

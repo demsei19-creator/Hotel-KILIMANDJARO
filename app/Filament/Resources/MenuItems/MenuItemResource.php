@@ -18,6 +18,8 @@ class MenuItemResource extends Resource
 {
     protected static ?string $model = MenuItem::class;
 
+    protected static ?string $modelLabel = 'Plat / Boisson';
+    protected static ?string $pluralModelLabel = 'Plats & Boissons';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';

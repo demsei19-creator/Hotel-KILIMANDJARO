@@ -60,3 +60,21 @@
         @apply font-serif font-light tracking-tight;
     }
 }
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        transform: none !important;
+    }
+    .animate-slow-zoom {
+        animation: none !important;
+    }
+    .animate-fade-in-up {
+        animation-name: fade-in-up-reduced !important;
+    }
+}
+
+@keyframes fade-in-up-reduced {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

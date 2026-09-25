@@ -18,6 +18,8 @@ class MenuCategoryResource extends Resource
 {
     protected static ?string $model = MenuCategory::class;
 
+    protected static ?string $modelLabel = 'Catégorie de la carte';
+    protected static ?string $pluralModelLabel = 'Catégories de la carte';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';

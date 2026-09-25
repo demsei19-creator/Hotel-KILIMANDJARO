@@ -32,7 +32,7 @@
                                 <a href="{{ url('/chambres/' . $type->id) }}" class="block overflow-hidden aspect-[4/3] md:aspect-[16/10]">
                                     <!-- Using local images for demo -->
                                     <img src="{{ asset('images/room' . ($loop->index % 2 == 0 ? '1' : '2') . '.jpg') }}" 
-                                         alt="{{ $type->name }}" 
+                                         alt="{{ $type->name }}" loading="lazy"
                                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out">
                                 </a>
                                 <!-- Decorative element -->
@@ -64,7 +64,7 @@
                                         {{ number_format($type->base_price, 0, ',', ' ') }} <span class="font-sans text-sm text-luxury-gray tracking-widest uppercase">FCFA / nuit</span>
                                     </div>
                                     
-                                    <a href="{{ url('/chambres/' . $type->id) }}" class="inline-block border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-luxury-white px-8 py-4 font-sans tracking-[0.2em] uppercase text-xs text-center transition-all duration-300">
+                                    <a href="{{ url('/chambres/' . $type->id) }}" class="inline-block border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-luxury-white active:scale-[0.98] active:opacity-90 px-8 py-4 font-sans tracking-[0.2em] uppercase text-xs text-center transition-all duration-300">
                                         Découvrir la suite
                                     </a>
                                 </div>

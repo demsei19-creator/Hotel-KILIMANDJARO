@@ -28,13 +28,25 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-10 font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-luxury-black">
-                <a href="{{ url('/') }}" class="hover:text-luxury-gray transition-colors duration-300">Accueil</a>
-                <a href="{{ url('/chambres') }}" class="hover:text-luxury-gray transition-colors duration-300">Chambres</a>
-                <a href="{{ url('/restaurant') }}" class="hover:text-luxury-gray transition-colors duration-300">Restaurant</a>
-                <a href="#contact" class="hover:text-luxury-gray transition-colors duration-300">Contact</a>
+                <a href="{{ url('/') }}" class="relative group transition-colors duration-300 hover:text-luxury-gold">
+                    Accueil
+                    <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-luxury-gold group-hover:w-full group-hover:left-0 transition-all duration-500 ease-out"></span>
+                </a>
+                <a href="{{ url('/chambres') }}" class="relative group transition-colors duration-300 hover:text-luxury-gold">
+                    Chambres
+                    <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-luxury-gold group-hover:w-full group-hover:left-0 transition-all duration-500 ease-out"></span>
+                </a>
+                <a href="{{ url('/restaurant') }}" class="relative group transition-colors duration-300 hover:text-luxury-gold">
+                    Restaurant
+                    <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-luxury-gold group-hover:w-full group-hover:left-0 transition-all duration-500 ease-out"></span>
+                </a>
+                <a href="#contact" class="relative group transition-colors duration-300 hover:text-luxury-gold">
+                    Contact
+                    <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-luxury-gold group-hover:w-full group-hover:left-0 transition-all duration-500 ease-out"></span>
+                </a>
                 
                 <a href="{{ url('/chambres') }}" 
-                   class="ml-4 border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-white px-8 py-3.5 transition-colors duration-300">
+                   class="ml-4 border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-white active:scale-[0.98] active:opacity-90 px-8 py-3.5 transition-all duration-300">
                     Réserver
                 </a>
             </nav>
@@ -66,7 +78,7 @@
                 <a href="{{ url('/restaurant') }}" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Restaurant</a>
                 <a href="#contact" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Contact</a>
                 <div class="pt-10 mt-6 border-t border-white/20 w-32 text-center">
-                    <a href="{{ url('/chambres') }}" class="inline-block border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white px-10 py-4 text-sm font-sans tracking-[0.3em] uppercase transition-all duration-500">
+                    <a href="{{ url('/chambres') }}" class="inline-block border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white active:scale-[0.98] active:opacity-90 px-10 py-4 text-sm font-sans tracking-[0.3em] uppercase transition-all duration-500">
                         Réserver
                     </a>
                 </div>
@@ -95,7 +107,8 @@
                     </p>
                     
                     <form class="flex border-b border-luxury-gray/50 pb-2 max-w-sm group">
-                        <input type="email" placeholder="Votre email pour nos exclusivités" class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-luxury-gray/50 font-sans tracking-wide">
+                        <label for="newsletter-email" class="sr-only">Votre email pour nos exclusivités</label>
+                        <input id="newsletter-email" type="email" placeholder="Votre email pour nos exclusivités" class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-luxury-gray/50 font-sans tracking-wide">
                         <button type="submit" class="text-luxury-gold text-xs uppercase tracking-widest group-hover:text-white transition-colors duration-300">S'inscrire</button>
                     </form>
                 </div>
@@ -132,7 +145,7 @@
                     <a href="#" class="hover:text-white transition-colors">Mentions légales</a>
                     <a href="#" class="hover:text-white transition-colors">Confidentialité</a>
                 </div>
-                <p>&copy; {{ date('Y') }} Kilimandjaro. Design par <span class="text-luxury-gold">Antigravity</span></p>
+                <p>&copy; {{ date('Y') }} Kilimandjaro. Design par <span class="text-luxury-gold">BIGI DEV</span></p>
             </div>
         </div>
     </footer>
