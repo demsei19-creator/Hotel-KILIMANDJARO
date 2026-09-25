@@ -2,24 +2,37 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\RoomType;
+use App\Models\Room;
+use App\Models\Reservation;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        if (!User::where('email', 'admin@hotel.com')->exists()) {
+            User::factory()->create([
+                'name' => 'Admin',
+                'email' => 'admin@hotel.com',
+                'password' => bcrypt('password'),
+            ]);
+        }
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $roomTypes = RoomType::factory()->count(6)->create();
+
+        foreach ($roomTypes as $type) {
+            Room::factory()->count(rand(2, 6))->create([
+                'room_type_id' => $type->id
+            ]);
+        }
+        
+        $rooms = Room::all();
+        foreach ($rooms->random(min(10, $rooms->count())) as $room) {
+            Reservation::factory()->count(rand(1, 3))->create([
+                'room_id' => $room->id
+            ]);
+        }
     }
 }
