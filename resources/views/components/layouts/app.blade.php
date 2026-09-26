@@ -110,10 +110,10 @@
                         Une retraite urbaine d'exception au cœur de Babi. L'art de vivre réinventé à travers un minimalisme raffiné et un service sans compromis.
                     </p>
                     
-                    <form class="flex border-b border-luxury-gray/50 pb-2 max-w-sm group">
-                        <label for="newsletter-email" class="sr-only">Votre email pour nos exclusivités</label>
-                        <input id="newsletter-email" type="email" placeholder="Votre email pour nos exclusivités" class="bg-transparent border-none outline-none text-sm w-full text-white placeholder-luxury-gray/50 font-sans tracking-wide">
-                        <button type="submit" class="text-luxury-gold text-xs uppercase tracking-widest group-hover:text-white transition-colors duration-300">S'inscrire</button>
+                    <form class="flex items-center justify-between border-b border-luxury-gray/50 pb-2 max-w-sm">
+                        <label for="newsletter-email" class="sr-only">Votre adresse email</label>
+                        <input id="newsletter-email" type="email" placeholder="Votre adresse email" class="bg-transparent border-none outline-none text-sm w-full min-w-0 text-white placeholder-luxury-gray/50 font-sans tracking-wide">
+                        <button type="submit" class="flex-shrink-0 ml-4 text-luxury-gold text-xs uppercase tracking-widest hover:text-white transition-colors duration-300">S'inscrire</button>
                     </form>
                 </div>
                 
