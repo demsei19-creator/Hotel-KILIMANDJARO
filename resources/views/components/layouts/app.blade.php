@@ -66,7 +66,7 @@
              x-transition:leave="transition ease-in duration-300"
              x-transition:leave-start="opacity-100 translate-y-0"
              x-transition:leave-end="opacity-0 -translate-y-full"
-             class="absolute top-0 left-0 w-full h-screen bg-luxury-black text-white flex flex-col justify-center items-center md:hidden z-40" style="display:none;">
+             class="fixed inset-0 w-full h-screen bg-luxury-black/90 backdrop-blur-md text-white flex flex-col justify-center items-center md:hidden z-40" style="display:none;">
             
             <button @click="mobileMenuOpen = false" class="absolute top-10 right-8 text-white focus:outline-none">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -80,9 +80,9 @@
                     <a href="#contact" class="hover:text-luxury-gold transition-colors duration-300">Contact</a>
                 </div>
                 
-                <div class="mt-12 w-full max-w-xs flex flex-col items-center">
+                <div class="mt-12 flex flex-col items-center">
                     <div class="w-24 h-[1px] bg-white/20 mb-10"></div>
-                    <a href="{{ url('/chambres') }}" class="w-full text-center border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white active:scale-[0.98] active:opacity-90 py-4 text-xs font-sans tracking-[0.2em] uppercase transition-all duration-300">
+                    <a href="{{ url('/chambres') }}" class="inline-block border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white active:scale-[0.98] active:opacity-90 px-10 py-4 text-xs font-sans tracking-[0.2em] uppercase transition-all duration-300">
                         Réserver
                     </a>
                 </div>
