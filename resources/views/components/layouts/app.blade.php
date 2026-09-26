@@ -72,13 +72,17 @@
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             
-            <div class="flex flex-col items-center gap-10 font-serif text-4xl">
-                <a href="{{ url('/') }}" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Accueil</a>
-                <a href="{{ url('/chambres') }}" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Chambres</a>
-                <a href="{{ url('/restaurant') }}" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Restaurant</a>
-                <a href="#contact" class="hover:text-luxury-gold transition-colors duration-500 hover:tracking-widest">Contact</a>
-                <div class="pt-10 mt-6 border-t border-white/20 w-32 text-center">
-                    <a href="{{ url('/chambres') }}" class="inline-block border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white active:scale-[0.98] active:opacity-90 px-10 py-4 text-sm font-sans tracking-[0.3em] uppercase transition-all duration-500">
+            <div class="flex flex-col items-center w-full px-8">
+                <div class="flex flex-col items-center gap-8 font-serif text-4xl w-full">
+                    <a href="{{ url('/') }}" class="hover:text-luxury-gold transition-colors duration-300">Accueil</a>
+                    <a href="{{ url('/chambres') }}" class="hover:text-luxury-gold transition-colors duration-300">Chambres</a>
+                    <a href="{{ url('/restaurant') }}" class="hover:text-luxury-gold transition-colors duration-300">Restaurant</a>
+                    <a href="#contact" class="hover:text-luxury-gold transition-colors duration-300">Contact</a>
+                </div>
+                
+                <div class="mt-12 w-full max-w-xs flex flex-col items-center">
+                    <div class="w-24 h-[1px] bg-white/20 mb-10"></div>
+                    <a href="{{ url('/chambres') }}" class="w-full text-center border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white active:scale-[0.98] active:opacity-90 py-4 text-xs font-sans tracking-[0.2em] uppercase transition-all duration-300">
                         Réserver
                     </a>
                 </div>
