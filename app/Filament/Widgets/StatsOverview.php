@@ -31,7 +31,7 @@ class StatsOverview extends BaseWidget
         $occupancyRate = $totalRooms > 0 ? round(($occupiedRooms / $totalRooms) * 100) : 0;
 
         return [
-            Stat::make('Chiffre d\'affaires (Mois)', number_format($monthlyRevenue, 0, ',', ' ') . ' FCFA')
+            Stat::make('Chiffre d\'affaires (Mois)', number_format((float) $monthlyRevenue, 0, ',', ' ') . ' FCFA')
                 ->description('Revenus des réservations confirmées')
                 ->descriptionIcon('heroicon-m-banknotes')
                 ->color('success'),

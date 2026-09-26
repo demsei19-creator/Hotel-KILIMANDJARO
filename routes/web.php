@@ -21,3 +21,10 @@ Route::post('/restaurant/book', [\App\Http\Controllers\RestaurantController::cla
 Route::post('/webhook/cinetpay', [\App\Http\Controllers\CinetPayWebhookController::class, 'handle'])
     ->name('webhook.cinetpay')
     ->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class);
+
+Route::get('/cloud-logs', function () {
+    $logFile = storage_path('logs/laravel.log');
+    if (!file_exists($logFile)) return 'No logs';
+    $logs = file($logFile);
+    return '<pre style="white-space: pre-wrap; word-wrap: break-word;">' . implode("", array_slice($logs, -100)) . '</pre>';
+});
