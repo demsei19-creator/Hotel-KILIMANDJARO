@@ -5,20 +5,20 @@
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-luxury-black">
         <!-- Background Image with parallax/slow zoom effect -->
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('images/hero.jpg') }}" 
+            <img src="{{ asset('images/image 2.png') }}" 
                  alt="Vue de l'Hôtel Kilimandjaro" 
                  class="w-full h-full object-cover animate-slow-zoom brightness-75">
             <!-- Gradient overlay for better text readability -->
-            <div class="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/50 to-luxury-black/40"></div>
         </div>
         
         <!-- Overlay Grain (Texture) -->
         <div class="absolute inset-0 z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-30 mix-blend-overlay pointer-events-none"></div>
 
         <div class="relative z-10 text-center px-4 animate-fade-in-up">
-            <p class="font-sans text-luxury-gold tracking-[0.3em] uppercase text-xs md:text-sm mb-6">Terre d'Éburnie, Côte d'Ivoire</p>
-            <h1 class="font-serif text-5xl md:text-8xl text-white mb-8 leading-tight">
-                Le Sommet <br> <span class="italic text-luxury-gold-dark font-light">de l'Élégance</span>
+            <p class="font-sans text-luxury-gold font-medium tracking-[0.3em] uppercase text-xs md:text-sm mb-6 drop-shadow-md">Terre d'Éburnie, Côte d'Ivoire</p>
+            <h1 class="font-serif text-5xl md:text-8xl text-white mb-8 leading-tight drop-shadow-lg">
+                Le Sommet <br> <span class="italic text-luxury-gold font-medium drop-shadow-md">de l'Élégance</span>
             </h1>
             <a href="{{ url('/chambres') }}" class="inline-block border border-white/30 text-white hover:bg-white hover:text-luxury-black px-10 py-4 font-sans tracking-[0.2em] uppercase text-sm transition-all duration-500 backdrop-blur-sm">
                 Vivre l'Akwaba
@@ -64,7 +64,7 @@
                      x-data="{ shown: false }" x-intersect.once="shown = true">
                     <div class="aspect-[3/4] overflow-hidden transition-all duration-1000 delay-200 ease-out"
                          :class="shown ? 'opacity-100 scale-100' : 'opacity-0 scale-95'">
-                        <img src="{{ asset('images/philosophy.jpg') }}" 
+                        <img src="{{ asset('images/chambre 1.png') }}" 
                              alt="Détail architectural" loading="lazy"
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]">
                     </div>
@@ -102,7 +102,7 @@
                    x-data="{ shown: false }" x-intersect.once="shown = true">
                     <div class="aspect-[4/3] overflow-hidden mb-6 transition-all duration-1000 ease-out"
                          :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
-                        <img src="{{ asset('images/room1.jpg') }}" 
+                        <img src="{{ asset('images/chambre 2.png') }}" 
                              alt="Suite Signature" loading="lazy"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]">
                     </div>
@@ -120,7 +120,7 @@
                    x-data="{ shown: false }" x-intersect.once="shown = true">
                     <div class="aspect-[4/3] overflow-hidden mb-6 transition-all duration-1000 delay-300 ease-out"
                          :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
-                        <img src="{{ asset('images/room2.jpg') }}" 
+                        <img src="{{ asset('images/chambre 2.png') }}" 
                              alt="Chambre Supérieure" loading="lazy"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]">
                     </div>

@@ -5,13 +5,13 @@
             <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
                  alt="Le Restaurant Kilimandjaro" 
                  class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-luxury-black/90 via-luxury-black/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-luxury-black/90 via-luxury-black/50 to-luxury-black/40"></div>
         </div>
         
         <div class="relative z-10 text-center text-white px-4 pt-20" x-data="{ shown: false }" x-intersect.once="shown = true">
-            <span class="font-sans text-luxury-gold tracking-[0.3em] uppercase text-sm mb-6 block transition-all duration-1000 ease-out"
+            <span class="font-sans text-luxury-gold font-medium drop-shadow-md tracking-[0.3em] uppercase text-sm mb-6 block transition-all duration-1000 ease-out"
                   :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">Le Maquis de Luxe</span>
-            <h1 class="font-serif text-5xl md:text-7xl mb-6 transition-all duration-1000 delay-300 ease-out"
+            <h1 class="font-serif text-5xl md:text-7xl mb-6 drop-shadow-lg transition-all duration-1000 delay-300 ease-out"
                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">L'&Eacute;veil des Sens</h1>
             <p class="font-sans text-lg md:text-xl text-luxury-gray-light max-w-2xl mx-auto transition-all duration-1000 delay-500 ease-out"
                :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">

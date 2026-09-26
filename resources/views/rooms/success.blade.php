@@ -14,11 +14,16 @@
             </div>
 
             <!-- Header -->
-            <span class="font-sans text-luxury-gold tracking-[0.3em] uppercase text-xs mb-4 block">Félicitations</span>
+            <span class="font-sans text-luxury-gold-dark font-medium tracking-[0.3em] uppercase text-xs mb-4 block">Félicitations</span>
             <h1 class="font-serif text-4xl md:text-5xl text-luxury-black mb-6">Réservation Enregistrée</h1>
             
             <p class="font-sans text-luxury-gray text-base leading-relaxed mb-12">
-                Merci <strong>{{ $reservation->customer_name }}</strong>. Votre demande de séjour a été reçue avec succès et est actuellement <strong>en attente de prépaiement</strong>.
+                Merci <strong>{{ $reservation->customer_name }}</strong>. Votre demande de séjour a été reçue avec succès
+                @if($reservation->status === 'confirmed')
+                    et est maintenant <strong class="text-green-700">confirmée et payée</strong>.
+                @else
+                    et est actuellement <strong>en attente de validation du paiement</strong>.
+                @endif
             </p>
 
             <!-- Details Card -->
