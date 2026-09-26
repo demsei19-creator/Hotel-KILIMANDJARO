@@ -24,19 +24,17 @@
                 Vivre l'Akwaba
             </a>
             
-            <!-- Chic Down Arrow Indicator -->
-            <div class="flex justify-center">
-                <div class="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center animate-bounce text-white/70 hover:text-luxury-gold hover:border-luxury-gold/50 transition-colors duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </div>
+            <!-- Chic Down Arrow Indicator (Clickable Mouse Scroll) -->
+            <div class="flex justify-center mt-4">
+                <a href="#philosophy" aria-label="Défiler vers le bas" class="group flex items-start justify-center w-6 h-10 border border-white/30 rounded-full hover:border-luxury-gold transition-all duration-500 opacity-70 hover:opacity-100 pt-2 backdrop-blur-sm cursor-pointer">
+                    <div class="w-1 h-2 bg-white rounded-full group-hover:bg-luxury-gold transition-colors duration-500 animate-bounce"></div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- SECTION 2: Philosophy (Editorial Layout) -->
-    <section class="py-32 px-6 md:px-12 bg-luxury-white overflow-hidden">
+    <section id="philosophy" class="py-32 px-6 md:px-12 bg-luxury-white overflow-hidden">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
                 <!-- Text block -->
