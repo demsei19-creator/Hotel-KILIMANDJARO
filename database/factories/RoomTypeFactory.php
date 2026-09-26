@@ -9,9 +9,9 @@ class RoomTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique()->randomElement(['Suite Royale', 'Chambre Deluxe', 'Chambre Familiale', 'Suite Exécutive', 'Chambre Standard', 'Suite Présidentielle', 'Bungalow sur l\'eau', 'Villa Privée', 'Chambre Océan', 'Suite Panoramique']),
-            'base_price' => $this->faker->randomFloat(2, 50, 500),
-            'capacity' => $this->faker->numberBetween(1, 6),
+            'name' => fake()->unique()->randomElement(['Suite Royale', 'Chambre Deluxe', 'Chambre Familiale', 'Suite Exécutive', 'Chambre Standard', 'Suite Présidentielle', 'Bungalow sur l\'eau', 'Villa Privée', 'Chambre Océan', 'Suite Panoramique']),
+            'base_price' => fake()->randomFloat(2, 50, 500),
+            'capacity' => fake()->numberBetween(1, 6),
         ];
     }
 }
