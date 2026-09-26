@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T18:22:00Z",
+  "title": "Design System: Hôtel Kilimandjaro",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Or Kilimandjaro", "canonical": "#C5A880", "tonalRamp": ["#3B3226", "#584B39", "#76644D", "#937D60", "#B19673", "#C5A880", "#D6BFA0", "#E8D8C2", "#FAF1E3"] },
+      "primary-deep": { "role": "primary", "displayName": "Or Profond", "canonical": "#A98C64", "tonalRamp": ["#322A1E", "#4B3F2D", "#64543C", "#7D694B", "#967E5A", "#A98C64", "#C2AA87", "#DBCAA8", "#F5ECCB"] },
+      "neutral-bg": { "role": "neutral", "displayName": "Blanc Pur", "canonical": "#FAFAFA", "tonalRamp": ["#1A1A1A", "#333333", "#4D4D4D", "#666666", "#808080", "#999999", "#B3B3B3", "#CCCCCC", "#FAFAFA"] },
+      "neutral-surface": { "role": "neutral", "displayName": "Noir Luxe", "canonical": "#0A0A0A", "tonalRamp": ["#000000", "#0A0A0A", "#141414", "#1F1F1F", "#292929", "#333333", "#474747", "#5C5C5C", "#707070"] },
+      "neutral-border": { "role": "neutral", "displayName": "Gris Doux", "canonical": "#E5E5E5", "tonalRamp": ["#171717", "#2E2E2E", "#454545", "#5C5C5C", "#737373", "#8A8A8A", "#A1A1A1", "#B8B8B8", "#E5E5E5"] },
+      "neutral-text-muted": { "role": "neutral", "displayName": "Gris Muted", "canonical": "#737373", "tonalRamp": ["#0B0B0B", "#171717", "#222222", "#2E2E2E", "#393939", "#454545", "#515151", "#5C5C5C", "#737373"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Titres héroïques, promesses de marque." },
+      "body": { "displayName": "Body", "purpose": "Paragraphes, descriptions." },
+      "label": { "displayName": "Label", "purpose": "Sur-titres, boutons, petits liens de navigation." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "fade-in-up", "value": "1s cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Révélation théâtrale au scroll." },
+      { "name": "slow-zoom", "value": "10s ease-out", "purpose": "Donner vie aux images en arrière-plan ou au survol." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton Outline (Hero CTA)",
+      "kind": "button",
+      "refersTo": "btn-outline",
+      "description": "Bouton fantôme sur fond sombre.",
+      "html": "<button class=\"ds-btn-outline\">Vivre l'Akwaba</button>",
+      "css": ".ds-btn-outline { font-family: 'Outfit', sans-serif; font-size: 0.875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; color: #FAFAFA; background-color: transparent; border: 1px solid rgba(250, 250, 250, 0.3); padding: 1rem 2.5rem; cursor: pointer; transition: all 0.5s ease; backdrop-filter: blur(4px); } .ds-btn-outline:hover { background-color: #FAFAFA; color: #0A0A0A; }"
+    },
+    {
+      "name": "Lien de Découverte",
+      "kind": "nav",
+      "refersTo": "link-inline",
+      "description": "Lien en ligne avec ligne extensible au survol.",
+      "html": "<a href=\"#\" class=\"ds-link-inline\"><span class=\"ds-link-text\">Découvrir</span><div class=\"ds-link-line\"></div></a>",
+      "css": ".ds-link-inline { display: inline-flex; align-items: center; gap: 1rem; font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #0A0A0A; text-decoration: none; cursor: pointer; } .ds-link-line { height: 1px; width: 3rem; background-color: #0A0A0A; transition: width 0.5s ease; } .ds-link-inline:hover .ds-link-line { width: 6rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "L'Écrin d'Éburnie",
+    "overview": "L'Hôtel Kilimandjaro incarne une vision du luxe où l'épure rencontre la chaleur de l'hospitalité ivoirienne. Le design est minimaliste mais jamais froid. De grands espaces de respiration, une typographie élégante à empattements (Cormorant Garamond) et des touches dorées sculptent l'interface. L'objectif est de projeter l'utilisateur dans une atmosphère de sérénité et de prestige dès le premier regard.",
+    "keyCharacteristics": [
+      "Forts contrastes (Noir profond vs Blanc pur) adoucis par des accents or.",
+      "Utilisation théâtrale de la typographie (titres surdimensionnés et fins).",
+      "Animations subtiles, longues et fluides (fade-in, slow-zoom).",
+      "Minimalisme assumé : les images et l'espace priment."
+    ],
+    "rules": [
+      { "name": "The Space Rule", "body": "Le vide est un élément de design. Les sections doivent respirer avec de vastes marges (py-32), permettant aux images de dominer.", "section": "colors" },
+      { "name": "The Shadowless Rule", "body": "Ne pas utiliser de box-shadow génériques. L'élégance naît de la netteté des bords et de la qualité des médias.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do utiliser des animations d'apparition progressives (fade-in-up) au scroll pour révéler le contenu de manière théâtrale.",
+      "Do toujours accompagner la police \"Cormorant Garamond\" d'un fort contraste de taille par rapport à la police \"Outfit\"."
+    ],
+    "donts": [
+      "Don't utiliser des couleurs saturées (rouges, bleus vifs). Rester dans le spectre des Noirs, Blancs, Gris et Or.",
+      "Don't arrondir les angles des images ou des boutons. Les arêtes vives participent au caractère architectural et luxueux du design."
+    ]
+  }
+}

@@ -19,15 +19,15 @@
     <header x-data="{ mobileMenuOpen: false }" 
             class="fixed top-0 w-full z-50 bg-white border-b border-gray-200 py-5 text-luxury-black">
         
-        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        <div class="container mx-auto px-6 md:px-6 lg:px-12 flex justify-between items-center">
             
             <!-- Logo -->
-            <a href="{{ url('/') }}" class="font-serif text-2xl md:text-[28px] tracking-[0.35em] uppercase text-luxury-black">
+            <a href="{{ url('/') }}" class="font-serif text-2xl md:text-xl lg:text-[28px] tracking-[0.2em] md:tracking-widest lg:tracking-[0.35em] uppercase text-luxury-black whitespace-nowrap">
                 Kilimandjaro
             </a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-10 font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-luxury-black">
+            <nav class="hidden md:flex items-center md:gap-6 lg:gap-10 font-sans text-[10px] lg:text-[11px] font-medium uppercase md:tracking-widest lg:tracking-[0.2em] text-luxury-black">
                 <a href="{{ url('/') }}" class="relative group transition-colors duration-300 hover:text-luxury-gold">
                     Accueil
                     <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-luxury-gold group-hover:w-full group-hover:left-0 transition-all duration-500 ease-out"></span>
@@ -46,7 +46,7 @@
                 </a>
                 
                 <a href="{{ url('/chambres') }}" 
-                   class="ml-4 border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-white active:scale-[0.98] active:opacity-90 px-8 py-3.5 transition-all duration-300">
+                   class="md:ml-4 lg:ml-4 border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-white active:scale-[0.98] active:opacity-90 md:px-4 lg:px-8 md:py-2.5 lg:py-3.5 transition-all duration-300 whitespace-nowrap">
                     Réserver
                 </a>
             </nav>

@@ -20,16 +20,17 @@
             <h1 class="font-serif text-5xl md:text-8xl text-white mb-8 leading-tight drop-shadow-lg">
                 Le Sommet <br> <span class="italic text-luxury-gold font-medium drop-shadow-md">de l'Élégance</span>
             </h1>
-            <a href="{{ url('/chambres') }}" class="inline-block border border-white/30 text-white hover:bg-white hover:text-luxury-black px-10 py-4 font-sans tracking-[0.2em] uppercase text-sm transition-all duration-500 backdrop-blur-sm">
+            <a href="{{ url('/chambres') }}" class="inline-block border border-white/30 text-white hover:bg-white hover:text-luxury-black px-10 py-4 font-sans tracking-[0.2em] uppercase text-sm transition-all duration-500 backdrop-blur-sm mb-16">
                 Vivre l'Akwaba
             </a>
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4 opacity-70">
-            <span class="font-sans text-[10px] tracking-widest text-white uppercase rotate-90 origin-left translate-x-2">Défilez</span>
-            <div class="w-[1px] h-16 bg-white/30 overflow-hidden relative">
-                <div class="absolute top-0 left-0 w-full h-1/2 bg-white animate-[slide-down_2s_ease-in-out_infinite]"></div>
+            
+            <!-- Chic Down Arrow Indicator -->
+            <div class="flex justify-center">
+                <div class="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center animate-bounce text-white/70 hover:text-luxury-gold hover:border-luxury-gold/50 transition-colors duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
@@ -81,7 +82,7 @@
     <!-- SECTION 3: The Rooms (Minimalist Showcase) -->
     <section class="py-32 bg-luxury-black text-white overflow-hidden">
         <div class="container mx-auto px-6 md:px-12">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8"
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8"
                  x-data="{ shown: false }" x-intersect.once="shown = true">
                 <div class="transition-all duration-1000 ease-out"
                      :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'">
@@ -106,10 +107,10 @@
                              alt="Suite Signature" loading="lazy"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]">
                     </div>
-                    <div class="flex justify-between items-baseline transition-all duration-1000 delay-200 ease-out"
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1 sm:gap-0 transition-all duration-1000 delay-200 ease-out mb-2"
                          :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'">
-                        <h3 class="font-serif text-3xl mb-2">Suite Signature</h3>
-                        <span class="font-sans text-sm text-luxury-gray">À partir de 150 000 FCFA</span>
+                        <h3 class="font-serif text-3xl">Suite Signature</h3>
+                        <span class="font-sans text-sm text-luxury-gold">À partir de 150 000 FCFA</span>
                     </div>
                     <p class="font-sans text-luxury-gray text-sm max-w-sm transition-all duration-1000 delay-400 ease-out"
                        :class="shown ? 'opacity-100' : 'opacity-0'">65m² d'élégance pure, vue panoramique sur la belle lagune Ébrié.</p>
@@ -124,10 +125,10 @@
                              alt="Chambre Supérieure" loading="lazy"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]">
                     </div>
-                    <div class="flex justify-between items-baseline transition-all duration-1000 delay-500 ease-out"
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline gap-1 sm:gap-0 transition-all duration-1000 delay-500 ease-out mb-2"
                          :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'">
-                        <h3 class="font-serif text-3xl mb-2">Chambre Supérieure</h3>
-                        <span class="font-sans text-sm text-luxury-gray">À partir de 95 000 FCFA</span>
+                        <h3 class="font-serif text-3xl">Chambre Supérieure</h3>
+                        <span class="font-sans text-sm text-luxury-gold">À partir de 95 000 FCFA</span>
                     </div>
                     <p class="font-sans text-luxury-gray text-sm max-w-sm transition-all duration-1000 delay-700 ease-out"
                        :class="shown ? 'opacity-100' : 'opacity-0'">Confort intimiste et hospitalité chaleureuse pour un enjaillement absolu.</p>
