@@ -12,12 +12,17 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        $adminRole = \Spatie\Permission\Models\Role::firstOrCreate(['name' => 'admin']);
+        
         if (!User::where('email', 'demsei19@gmail.com')->exists()) {
-            User::factory()->create([
+            $user = User::factory()->create([
                 'name' => 'Admin',
                 'email' => 'demsei19@gmail.com',
                 'password' => bcrypt('Bigidev@99'),
             ]);
+            $user->assignRole($adminRole);
+        } else {
+            User::where('email', 'demsei19@gmail.com')->first()->assignRole($adminRole);
         }
 
         $roomTypes = RoomType::factory()->count(6)->create();
