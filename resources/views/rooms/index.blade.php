@@ -4,7 +4,7 @@
     <!-- Header Section -->
     <section class="pt-40 pb-20 px-6 md:px-12 bg-luxury-white text-center">
         <div class="container mx-auto max-w-4xl animate-fade-in-up">
-            <span class="font-sans text-luxury-gold tracking-[0.3em] uppercase text-xs mb-6 block">Hébergement</span>
+            <span class="font-sans text-luxury-gold-dark font-medium tracking-[0.3em] uppercase text-xs mb-6 block">Hébergement</span>
             <h1 class="font-serif text-5xl md:text-7xl text-luxury-black mb-8">Refuges d'exception</h1>
             <p class="font-sans text-luxury-gray text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
                 Découvrez nos cocons conçus pour l'évasion. Chaque détail, des matières brutes aux lumières douces, a été pensé pour vous offrir un doux enjaillement au cœur de Babi.

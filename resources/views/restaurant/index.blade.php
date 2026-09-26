@@ -26,7 +26,7 @@
 
         <div class="container mx-auto px-6 md:px-12 max-w-5xl relative z-10">
             <div class="text-center mb-24" x-data="{ shown: false }" x-intersect.once="shown = true">
-                <span class="font-sans text-luxury-gold tracking-[0.3em] uppercase text-xs mb-4 block transition-all duration-1000 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">Notre Carte</span>
+                <span class="font-sans text-luxury-gold-dark font-medium tracking-[0.3em] uppercase text-xs mb-4 block transition-all duration-1000 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">Notre Carte</span>
                 <h2 class="font-serif text-5xl md:text-6xl text-luxury-black transition-all duration-1000 delay-300 ease-out" :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">L'Essence des Saveurs</h2>
                 <div class="flex justify-center items-center gap-4 mt-8 transition-all duration-1000 delay-500 ease-out" :class="shown ? 'opacity-100' : 'opacity-0'">
                     <div class="w-12 h-[1px] bg-luxury-gold/50"></div>
