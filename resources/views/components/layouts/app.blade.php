@@ -17,7 +17,7 @@
     
     <!-- Navigation (Solid Luxury Header) -->
     <header x-data="{ mobileMenuOpen: false }" 
-            class="fixed top-0 w-full z-50 bg-[#F9F9FA] border-b border-gray-200 py-5 text-luxury-black">
+            class="fixed top-0 w-full z-50 bg-white border-b border-gray-200 py-5 text-luxury-black">
         
         <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
             
